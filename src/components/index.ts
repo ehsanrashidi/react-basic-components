@@ -4,3 +4,4 @@ export { default as Input } from "./Input";
 export { default as DropDownButton } from "./MenuButton";
 export { default as MenuButtonDivider } from "./MenuButtonDivider";
 export { default as ButtonGroup } from "./ButtonGroup";
+export { default as Flex } from "./Flex";

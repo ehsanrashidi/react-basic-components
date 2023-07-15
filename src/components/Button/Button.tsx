@@ -3,12 +3,8 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const handleColors = (props: ButtonProps) => {
-    let variant = "";
-
-    if (props.variant === "outline") {
-        variant = props.variant ? `-${props.variant}` : "";
-        return `btn-outline-${props.color}`;
-    } else if (props.variant === "link") return "btn-link";
+    if (props.variant === "outline") return `btn-outline-${props.color}`;
+    else if (props.variant === "link") return "btn-link";
     else return `btn-${props.color}`;
 };
 
