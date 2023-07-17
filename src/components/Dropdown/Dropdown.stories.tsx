@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import MenuButton from "./MenuButton";
+import Dropdown from "./Dropdown";
 
 export default {
-    title: "reactBasicTemplate/MenuButton",
-    component: MenuButton,
-} as ComponentMeta<typeof MenuButton>;
+    title: "reactBasicTemplate/Dropdown",
+    component: Dropdown,
+} as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof MenuButton> = (args) => <MenuButton {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
-export const MenuButtonExample = Template.bind({});
+export const DropdownExample = Template.bind({});
 
-MenuButtonExample.args = {
+DropdownExample.args = {
     placeHolder: "Actions",
     showSelectedItem: true,
     options: [

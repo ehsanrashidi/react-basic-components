@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-
 import classNames from "classnames";
-import MenuButtonDivider from "../MenuButtonDivider";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import Link from "../Link/Link";
 import Flex from "../Flex";
+import IDropdownOptions from "./IDropDownOption";
+import DropdownDivider from "./DropdownDivider";
 
-export interface IOptions {
-    id: string | number;
-    title: string | number | Array<JSX.Element> | JSX.Element[];
-    showDivider?: boolean;
-    href?: string;
-    icon?: JSX.Element;
-}
-export interface IMenuButtonProps {
-    options: Array<IOptions>;
+export interface IDropdownProps {
+    options: Array<IDropdownOptions>;
     className?: string;
     placeHolder?: string;
     showSelectedItem?: boolean;
@@ -22,10 +15,10 @@ export interface IMenuButtonProps {
     variant: "containted" | "outline";
     splitButton?: boolean;
 
-    onChange?(selectedOption: IOptions): void;
+    onChange?(selectedOption: IDropdownOptions): void;
 }
 
-const MenuButton: React.FC<IMenuButtonProps> = ({
+const Dropdown: React.FC<IDropdownProps> = ({
     options,
     placeHolder,
     className,
@@ -34,9 +27,9 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
     variant,
     splitButton,
     onChange,
-}: IMenuButtonProps) => {
+}: IDropdownProps) => {
     const [isFocused, setIsFocused] = React.useState(true);
-    const [selectedOption, setSelectedOption] = useState<IOptions>();
+    const [selectedOption, setSelectedOption] = useState<IDropdownOptions>();
 
     React.useEffect(() => {
         setIsFocused(false);
@@ -104,7 +97,7 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
                                 </Flex>
                             </Link>
                         )}
-                        {option.showDivider && <MenuButtonDivider />}
+                        {option.showDivider && <DropdownDivider />}
                     </>
                 ))}
             </div>
@@ -112,11 +105,11 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
     );
 };
 
-MenuButton.defaultProps = {
+Dropdown.defaultProps = {
     className: "",
     placeHolder: "",
     variant: "containted",
     color: "primary",
 };
 
-export default MenuButton;
+export default Dropdown;
