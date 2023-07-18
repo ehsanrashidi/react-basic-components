@@ -4,4 +4,5 @@ export default interface IDropdownOptions {
     showDivider?: boolean;
     href?: string;
     icon?: JSX.Element;
+    disabled?: boolean;
 }

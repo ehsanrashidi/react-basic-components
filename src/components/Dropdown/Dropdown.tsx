@@ -3,29 +3,46 @@ import classNames from "classnames";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import Link from "../Link/Link";
 import Flex from "../Flex";
-import IDropdownOptions from "./IDropDownOption";
 import DropdownDivider from "./DropdownDivider";
+import IDropdownOptions from "./IDropdownOption";
+import SvgCheck from "../../assets/icons/Check";
 
 export interface IDropdownProps {
     options: Array<IDropdownOptions>;
     className?: string;
     placeHolder?: string;
-    showSelectedItem?: boolean;
+    selectable: boolean;
     color: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
     variant: "containted" | "outline";
     splitButton?: boolean;
-
+    size?: "sm" | "lg";
     onChange?(selectedOption: IDropdownOptions): void;
 }
+
+const renderRow = (selectable: boolean, option: IDropdownOptions, selectedOption?: IDropdownOptions) => {
+    return (
+        <Flex justify="space-between" align="center">
+            <Flex justify="flex-start" align="center" gap={0.5}>
+                <div style={option.disabled ? { opacity: 0.3 } : {}}>{option.icon}</div> {option.title}
+            </Flex>
+            {selectable && option.id == selectedOption?.id && (
+                <div>
+                    <SvgCheck />
+                </div>
+            )}
+        </Flex>
+    );
+};
 
 const Dropdown: React.FC<IDropdownProps> = ({
     options,
     placeHolder,
     className,
-    showSelectedItem,
+    selectable,
     color,
     variant,
     splitButton,
+    size,
     onChange,
 }: IDropdownProps) => {
     const [isFocused, setIsFocused] = React.useState(true);
@@ -39,28 +56,33 @@ const Dropdown: React.FC<IDropdownProps> = ({
     const buttonRef = React.useRef<HTMLButtonElement>(null);
 
     const handleColors = (color: string, variant: string) => (variant === "outline" ? `btn-outline-${color}` : `btn-${color}`);
-
+    const handleSize = (size?: string) => (size ? `btn-${size}` : "");
     return (
         <div ref={ref} className={classNames({ dropdown: !splitButton }, { "btn-group": splitButton }, className)}>
             {!splitButton && (
                 <button
-                    className={classNames("dropdown-toggle", "btn ", handleColors(color, variant))}
+                    className={classNames("dropdown-toggle", "btn ", handleColors(color, variant), handleSize(size))}
                     onClick={() => setIsFocused(!isFocused)}
                 >
-                    {showSelectedItem && <span>{selectedOption?.title || placeHolder}</span>}
-                    {!showSelectedItem && <span>{placeHolder}</span>}
+                    {selectable && <span>{selectedOption?.title || placeHolder}</span>}
+                    {!selectable && <span>{placeHolder}</span>}
                 </button>
             )}
             {splitButton && (
                 <>
                     <div className={classNames("btn ", handleColors(color, variant))}>
-                        {showSelectedItem && <span>{selectedOption?.title || placeHolder}</span>}
-                        {!showSelectedItem && <span>{placeHolder}</span>}
+                        {selectable && <span>{selectedOption?.title || placeHolder}</span>}
+                        {!selectable && <span>{placeHolder}</span>}
                     </div>
                     <button
                         ref={buttonRef}
                         type="button"
-                        className={classNames("dropdown-toggle dropdown-toggle-split", "btn ", handleColors(color, variant))}
+                        className={classNames(
+                            "dropdown-toggle dropdown-toggle-split",
+                            "btn ",
+                            handleColors(color, variant),
+                            handleSize(size)
+                        )}
                         onClick={() => setIsFocused(!isFocused)}
                     >
                         <span className="sr-only" />
@@ -76,25 +98,19 @@ const Dropdown: React.FC<IDropdownProps> = ({
                     <>
                         {!option.href && (
                             <li
-                                className="dropdown-item"
+                                className={classNames("dropdown-item", { disabled: option.disabled })}
                                 onClick={() => {
                                     setSelectedOption(option);
                                     if (onChange) onChange(option);
                                 }}
                                 role="button"
                             >
-                                <Flex justify="space-between" align="center">
-                                    {option.title}
-                                    <div>{option.icon}</div>
-                                </Flex>
+                                {renderRow(selectable, option, selectedOption)}
                             </li>
                         )}
                         {option.href && (
-                            <Link className="dropdown-item" to={option.href}>
-                                <Flex justify="space-between" align="center">
-                                    {option.title}
-                                    <div>{option.icon}</div>
-                                </Flex>
+                            <Link className={classNames("dropdown-item", { disabled: option.disabled })} to={option.href}>
+                                {renderRow(selectable, option, selectedOption)}
                             </Link>
                         )}
                         {option.showDivider && <DropdownDivider />}
@@ -110,6 +126,7 @@ Dropdown.defaultProps = {
     placeHolder: "",
     variant: "containted",
     color: "primary",
+    selectable: false,
 };
 
 export default Dropdown;

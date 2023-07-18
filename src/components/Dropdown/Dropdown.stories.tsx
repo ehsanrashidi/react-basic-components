@@ -13,12 +13,14 @@ export const DropdownExample = Template.bind({});
 
 DropdownExample.args = {
     placeHolder: "Actions",
-    showSelectedItem: true,
+    selectable: true,
     options: [
         { id: "act1", title: "Action 1", icon: <SvgPrint /> },
-        { id: "act3", title: "Action 2", icon: <SvgPrint />, showDivider: true },
+        { id: "act2", title: "Action 2", icon: <SvgPrint />, disabled: true },
+        { id: "act3", title: "Action 3", icon: <SvgPrint />, showDivider: true },
         { id: 2, title: "Go To Google", href: "https://google.com", icon: <SvgPrint /> },
     ],
+
     splitButton: true,
     color: "primary",
     variant: "outline",

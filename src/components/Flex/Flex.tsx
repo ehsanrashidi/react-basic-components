@@ -11,6 +11,7 @@ export interface FlexProps {
     className?: string;
     style?: React.CSSProperties;
     children?: React.ReactNode;
+    gap?: number;
 }
 
 const Flex: React.FC<FlexProps> = ({
@@ -24,6 +25,7 @@ const Flex: React.FC<FlexProps> = ({
     className,
     style,
     children,
+    gap = 0,
 }) => {
     const flexStyle: React.CSSProperties = {
         display: "flex",
@@ -34,6 +36,7 @@ const Flex: React.FC<FlexProps> = ({
         flexBasis: basis,
         flexGrow: grow,
         flexShrink: shrink,
+        gap: `${gap}rem`,
         ...style,
     };
 
