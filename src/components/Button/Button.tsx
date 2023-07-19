@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Flex from "../Flex";
+import Spinner from "../Spinner";
 
 const handleColors = (props: ButtonProps) => {
     if (props.variant === "outline") return `btn-outline-${props.color}`;
@@ -29,9 +31,12 @@ export interface ButtonProps {
     href?: string;
     variant?: "containted" | "outline" | "link";
     color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
+    loadingColor?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
     disabled?: boolean;
     badge?: string;
     badgeType?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
+    loading?: boolean;
+    loadingType: "border" | "grow";
     onClick?(): void;
 }
 
@@ -45,7 +50,13 @@ const Button: React.FC<ButtonProps> = (ButtonProps) => {
 
     return (
         <button onClick={ButtonProps.onClick} className={classNames(ButtonProps.className, classname(ButtonProps))}>
-            <span>{ButtonProps.label}</span>
+            <Flex align="center" gap={0.5}>
+                {ButtonProps.loading && (
+                    <Spinner small={ButtonProps.size != "lg"} color={ButtonProps.loadingColor} type={ButtonProps.loadingType} />
+                )}
+
+                <span>{ButtonProps.label}</span>
+            </Flex>
             {ButtonProps.badge && <span className={classNames("badge ms-2", handleBadge(ButtonProps))}> {ButtonProps.badge}</span>}
         </button>
     );
@@ -55,6 +66,9 @@ Button.defaultProps = {
     variant: "containted",
     color: "primary",
     disabled: false,
+    loading: false,
+    loadingColor: "light",
+    loadingType: "border",
 };
 
 export default Button;
