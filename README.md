@@ -11,7 +11,7 @@ You can see a live demo of the components on the following URL:
 ## Installation
 
 To use these components in your own project, you can install the package from npm:
-npm install react-basic-components
+<pre>npm install react-basic-components</pre>
 
 ## Usage
 
