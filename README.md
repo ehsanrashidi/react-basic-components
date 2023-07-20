@@ -17,7 +17,7 @@ Once you have installed the package, you can import the components and use them 
 <pre>
 import React from 'react';
 import { Card, Button } from 'react-basic-components';
-import* as bc from 'react-basic-components'
+import * as bc from 'react-basic-components'
 ....
 </pre>
 ## Development
