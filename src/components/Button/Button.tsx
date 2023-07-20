@@ -36,7 +36,7 @@ export interface ButtonProps {
     badge?: string;
     badgeType?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
     loading?: boolean;
-    loadingType: "border" | "grow";
+    loadingType?: "border" | "grow";
     onClick?(): void;
 }
 
@@ -44,19 +44,28 @@ const Button: React.FC<ButtonProps> = (ButtonProps) => {
     if (ButtonProps.href)
         return (
             <a href={ButtonProps.href} className={classname(ButtonProps)}>
-                {ButtonProps.label}
+                <Flex align="center" gap={0.5}>
+                    {ButtonProps.loading && (
+                        <Spinner small={ButtonProps.size != "lg"} color={ButtonProps.loadingColor} type={ButtonProps.loadingType} />
+                    )}
+
+                    {ButtonProps.label}
+                </Flex>
             </a>
         );
 
     return (
         <button onClick={ButtonProps.onClick} className={classNames(ButtonProps.className, classname(ButtonProps))}>
-            <Flex align="center" gap={0.5}>
-                {ButtonProps.loading && (
-                    <Spinner small={ButtonProps.size != "lg"} color={ButtonProps.loadingColor} type={ButtonProps.loadingType} />
-                )}
+            {ButtonProps.loading && (
+                <Spinner
+                    className="me-2"
+                    small={ButtonProps.size != "lg"}
+                    color={ButtonProps.loadingColor}
+                    type={ButtonProps.loadingType}
+                />
+            )}
 
-                <span>{ButtonProps.label}</span>
-            </Flex>
+            <span>{ButtonProps.label}</span>
             {ButtonProps.badge && <span className={classNames("badge ms-2", handleBadge(ButtonProps))}> {ButtonProps.badge}</span>}
         </button>
     );
