@@ -18,3 +18,24 @@ import React from 'react';
 import { Card, Button } from 'react-basic-components';
 
 ....
+
+## Development
+
+To get started with development, clone this repository and install the dependencies:
+
+git clone https://github.com/ehsanrashidi/react-basic-components.git
+cd react-basic-components
+npm install
+
+You can then start Storybook by running the following command:
+npm run storybook
+
+This will start a local development server at http://localhost:6006/ where you can view and edit the components.
+
+Contributing
+Contributions to this project are welcome. If you find a bug or have a feature request, please open an issue on the GitHub repository.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+Feel free to modify this content to fit your project's specific needs.
