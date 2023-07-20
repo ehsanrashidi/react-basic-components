@@ -12,6 +12,7 @@ export interface FlexProps {
     style?: React.CSSProperties;
     children?: React.ReactNode;
     gap?: number;
+    elementName?:string;
 }
 
 const Flex: React.FC<FlexProps> = ({
@@ -26,6 +27,7 @@ const Flex: React.FC<FlexProps> = ({
     style,
     children,
     gap = 0,
+    elementName = "span",
 }) => {
     const flexStyle: React.CSSProperties = {
         display: "flex",
@@ -39,12 +41,8 @@ const Flex: React.FC<FlexProps> = ({
         gap: `${gap}rem`,
         ...style,
     };
-
-    return (
-        <div className={className} style={flexStyle}>
-            {children}
-        </div>
-    );
+    
+    return React.createElement(elementName,{className,style:{...flexStyle}} ,children);
 };
 
 export default Flex;

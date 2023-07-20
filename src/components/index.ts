@@ -8,3 +8,5 @@ export { default as List } from "./List";
 export { default as Spinner } from "./Spinner";
 export { default as Progress } from "./Progress";
 export { default as Tab } from "./Tab";
+export { default as Card } from "./Card";
+export { default as Image } from "./Image";

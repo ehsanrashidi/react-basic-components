@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { TabItem } from "./TabItem";
 
 export interface TabProps {
     className?: string;
@@ -7,15 +8,6 @@ export interface TabProps {
     defaultKey:string;
     type:"tabs"|"pills"
 }
-
-export interface TabItem {
-    key:string,
-    disabled?:boolean
-    title?:string,
-    content?:any
-}
-
-
 
 const Tab: React.FC<TabProps> = (TabProps) => {
 

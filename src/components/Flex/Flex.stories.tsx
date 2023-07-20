@@ -14,6 +14,7 @@ export const FlexExample = Template.bind({});
 FlexExample.args = {
     align: "flex-start",
     justify: "space-between",
+    elementName:"h1",
     children: (
         <>
             <div>1</div>
