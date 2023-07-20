@@ -1,4 +1,4 @@
-# React Basic Components
+# React Basic Elements
 
 This is an example project that demonstrates how to create basic React components using Storybook. It showcases a set of reusable UI components that can be used to build larger applications.
 
