@@ -5,6 +5,7 @@ This is an example project that demonstrates how to create basic React component
 ## Demo
 
 You can see a live demo of the components on the following URL:
+<br/>
 <a href="https://ehsanrashidi.github.io/react-basic-components/?path=/docs/reactbasictemplate-card--docs">react-basic-components<a>
 
 ## Installation
