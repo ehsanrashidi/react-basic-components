@@ -23,10 +23,11 @@ import { Card, Button } from 'react-basic-components';
 
 To get started with development, clone this repository and install the dependencies:
 
-git clone https://github.com/ehsanrashidi/react-basic-components.git
-cd react-basic-components
-npm install
-
+<code>
+  git clone https://github.com/ehsanrashidi/react-basic-components.git
+  cd react-basic-components
+  npm install
+</code>
 You can then start Storybook by running the following command:
 npm run storybook
 
