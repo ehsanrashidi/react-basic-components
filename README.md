@@ -6,20 +6,20 @@ This is an example project that demonstrates how to create basic React component
 
 You can see a live demo of the components on the following URL:
 <br/>
-<a href="https://ehsanrashidi.github.io/react-basic-components/?path=/docs/reactbasictemplate-card--docs">react-basic-components<a>
+<a href="https://ehsanrashidi.github.io/react-basic-elements/?path=/docs/reactbasictemplate-card--docs">react-basic-elements<a>
 
 ## Installation
 
 To use these components in your own project, you can install the package from npm:
-<pre>npm install react-basic-components</pre>
+<pre>npm install react-basic-elements</pre>
 
 ## Usage
 
 Once you have installed the package, you can import the components and use them in your React application:
 <pre>
 import React from 'react';
-import { Card, Button } from 'react-basic-components';
-import * as bc from 'react-basic-components'
+import { Card, Button } from 'react-basic-elements';
+import * as bc from 'react-basic-elements'
 ....
 </pre>
 ## Development
@@ -28,8 +28,8 @@ To get started with development, clone this repository and install the dependenc
 
 <pre>
   
-  git clone https://github.com/ehsanrashidi/react-basic-components.git
-  cd react-basic-components
+  git clone https://github.com/ehsanrashidi/react-basic-elements.git
+  cd react-basic-elements
   npm install
   
 </pre>
