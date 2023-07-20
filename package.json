@@ -1,10 +1,10 @@
 {
-    "name": "@ehsanrashidi/react-basic-components",
+    "name": "@ehsanrashidi/react-basic-elements",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/ehsanrashidi"
     },
     "version": "0.0.2",
-    "description": "React Basic Components",
+    "description": "React Basic Elements",
     "scripts": {
         "rollup": "rollup -c",
         "storybook": "storybook dev -p 6006",
