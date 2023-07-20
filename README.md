@@ -14,20 +14,24 @@ npm install react-basic-components
 ## Usage
 
 Once you have installed the package, you can import the components and use them in your React application:
+<pre>
 import React from 'react';
 import { Card, Button } from 'react-basic-components';
-
+import* as bc from 'react-basic-components'
 ....
-
+</pre>
 ## Development
 
 To get started with development, clone this repository and install the dependencies:
 
-<code>
+<pre>
+  
   git clone https://github.com/ehsanrashidi/react-basic-components.git
   cd react-basic-components
   npm install
-</code>
+  
+</pre>
+
 You can then start Storybook by running the following command:
 npm run storybook
 
