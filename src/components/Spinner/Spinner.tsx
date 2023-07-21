@@ -5,7 +5,7 @@ import Flex from "../Flex";
 export interface SpinnerProps {
     className?: string;
     color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
-    type: "border" | "grow";
+    type: "border" | "grow" | undefined;
     small: boolean;
 }
 
@@ -16,7 +16,7 @@ const Spinner: React.FC<SpinnerProps> = (SpinnerProps) => {
                 `spinner-${SpinnerProps.type}`,
                 `text-${SpinnerProps.color}`,
                 SpinnerProps.className,
-                SpinnerProps.small ? `spinner-${SpinnerProps.type}-sm` : "",
+                SpinnerProps.small ? `spinner-${SpinnerProps.type || "border"}-sm` : "",
             ].join(" ")}
             role="status"
         />

@@ -23,9 +23,6 @@ const Progress: React.FC<ProgressProps> = (ProgressProps) => {
                 ].join(" ")}
                 role="progressbar"
                 style={{ width: `${ProgressProps.value}%` }}
-                aria-valuenow="0"
-                aria-valuemin="0"
-                aria-valuemax="100"
             >
                 {ProgressProps.showValue && `${ProgressProps.value}%`}
             </div>
