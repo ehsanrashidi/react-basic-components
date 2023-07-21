@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { useOutsideClick } from "../../hooks/useOutsideClick";
 import Link from "../Link/Link";
 import Flex from "../Flex";
 import DropdownDivider from "./DropdownDivider";
 import IDropdownOptions from "./IDropdownOption";
 import SvgCheck from "../../assets/icons/Check";
+import { useOutsideClick } from "../../hooks";
 
 export interface IDropdownProps {
     options: Array<IDropdownOptions>;

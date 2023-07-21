@@ -36,7 +36,7 @@ export interface ButtonProps {
     badge?: string;
     badgeType?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
     loading?: boolean;
-    loadingType: "border" | "grow";
+    loadingType?: "border" | "grow" | undefined;
     onClick?(): void;
 }
 
@@ -46,7 +46,11 @@ const Button: React.FC<ButtonProps> = (ButtonProps) => {
             <a href={ButtonProps.href} className={classname(ButtonProps)}>
                 <Flex align="center" gap={0.5}>
                     {ButtonProps.loading && (
-                        <Spinner small={ButtonProps.size != "lg"} color={ButtonProps.loadingColor} type={ButtonProps.loadingType} />
+                        <Spinner
+                            small={ButtonProps.size != "lg"}
+                            color={ButtonProps.loadingColor}
+                            type={ButtonProps.loadingType || "border"}
+                        />
                     )}
 
                     {ButtonProps.label}

@@ -11,20 +11,17 @@ You can see a live demo of the components on the following URL:
 ## Installation
 
 To use these components in your own project, you can install the package from npm:
-
 <pre>npm install react-basic-elements</pre>
 
 ## Usage
 
 Once you have installed the package, you can import the components and use them in your React application:
-
 <pre>
 import React from 'react';
 import { Card, Button } from 'react-basic-elements';
 import * as bc from 'react-basic-elements'
 ....
 </pre>
-
 ## Development
 
 To get started with development, clone this repository and install the dependencies:
