@@ -36,7 +36,7 @@ export interface ButtonProps {
     badge?: string;
     badgeType?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
     loading?: boolean;
-    loadingType?: "border" | "grow";
+    loadingType: "border" | "grow";
     onClick?(): void;
 }
 

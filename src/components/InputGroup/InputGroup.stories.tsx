@@ -16,7 +16,7 @@ export const InputGroupExample = Template.bind({});
 InputGroupExample.args = {
     children: (
         <>
-            <Button label="btn 1" onClick={() => alert("btn 1 clicked")} />
+            <Button loadingType="border" label="btn 1" onClick={() => alert("btn 1 clicked")} />
             <Input value="input value" />
         </>
     ),

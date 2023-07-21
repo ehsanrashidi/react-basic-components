@@ -15,9 +15,9 @@ export const ButtonGroupExample = Template.bind({});
 ButtonGroupExample.args = {
     children: (
         <>
-            <Button color="danger" badge="1" badgeType="primary" label="left" />
-            <Button color="primary" badge="2" badgeType="danger" label="middle" />
-            <Button color="success" badge="3" badgeType="warning" label="right" />
+            <Button loadingType="border" color="danger" badge="1" badgeType="primary" label="left" />
+            <Button loadingType="border" color="primary" badge="2" badgeType="danger" label="middle" />
+            <Button loadingType="border" color="success" badge="3" badgeType="warning" label="right" />
         </>
     ),
 };

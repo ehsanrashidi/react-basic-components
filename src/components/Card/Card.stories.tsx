@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Button from "../Button";
-import CardFooter from "../CardFooter";
 import CardLink from "../CardLink";
 import Flex from "../Flex";
 
