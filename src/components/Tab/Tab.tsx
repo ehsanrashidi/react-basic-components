@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TabItem } from "./TabItem";
 
@@ -10,7 +10,7 @@ export interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = (TabProps) => {
-    const [selectedItem, setSelectedItem] = React.useState(TabProps.defaultKey);
+    const [selectedItem, setSelectedItem] = useState(TabProps.defaultKey);
 
     const isActive = (props: TabItem): boolean => props.key == selectedItem;
 
