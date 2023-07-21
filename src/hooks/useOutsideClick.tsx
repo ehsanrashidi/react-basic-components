@@ -1,6 +1,6 @@
 import React from "react";
 
-export const useOutsideClick = (callback: () => void) => {
+const useOutsideClick = (callback: () => void) => {
     const ref = React.createRef<HTMLInputElement>();
 
     React.useEffect(() => {
@@ -19,3 +19,4 @@ export const useOutsideClick = (callback: () => void) => {
 
     return ref;
 };
+export default useOutsideClick;
