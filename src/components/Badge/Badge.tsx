@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const classname = (BadgeProps: BadgeProps) => `bg-${BadgeProps.type}`;
@@ -10,7 +9,7 @@ export interface BadgeProps {
 }
 
 const Badge: React.FC<BadgeProps> = (BadgeProps) => {
-    return <span className={classNames(BadgeProps.className, "badge", classname(BadgeProps))}>{BadgeProps.label}</span>;
+    return <span className={[BadgeProps.className, "badge", classname(BadgeProps)].join(" ")}>{BadgeProps.label}</span>;
 };
 Badge.defaultProps = {
     type: "primary",

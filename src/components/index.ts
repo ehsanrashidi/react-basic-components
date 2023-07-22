@@ -11,3 +11,4 @@ export { default as Tab } from "./Tab";
 export { default as Card } from "./Card";
 export { default as CardLink } from "./CardLink";
 export { default as Image } from "./Image";
+export { default as Breadcrumb } from "./Breadcrumb";
