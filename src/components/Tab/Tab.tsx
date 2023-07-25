@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React from "react";
+>>>>>>> 2bf9f110b1b68a1cec4f021aab690bb46fe36df4
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TabItem } from "./TabItem";
 
@@ -10,7 +14,13 @@ export interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = (TabProps) => {
+<<<<<<< HEAD
     const [selectedItem, setSelectedItem] = useState(TabProps.defaultKey);
+=======
+    let selectedItem = TabProps.defaultKey;
+
+    const setSelectedItem = (value: string) => (selectedItem = value);
+>>>>>>> 2bf9f110b1b68a1cec4f021aab690bb46fe36df4
 
     const isActive = (props: TabItem): boolean => props.key == selectedItem;
 
